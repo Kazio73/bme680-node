@@ -22,11 +22,12 @@
  * THE SOFTWARE.
  */
 
-const sensor = require('bindings')('bme680');
+const path = require('path');
+const nativePath = require('bindings')('bme680').path || require('bindings')('bme680');
+const sensor = require(nativePath); // ← wymuszone załadowanie .node ręcznie
 
-/**
- * Calculates a simplified "pseudo-IAQ" index (0–500) based on gas resistance.
- */
+console.log('✅ Exports:', Object.keys(sensor));
+
 function calculateIAQ(gasResistance, baseline = 10_000_000) {
     const ratio = gasResistance / baseline;
     const iaq = 500 - (Math.log(ratio) * 100);
@@ -37,4 +38,5 @@ module.exports = {
     ...sensor,
     calculateIAQ,
 };
+✅ T
 
