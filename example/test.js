@@ -22,7 +22,7 @@
  * THE SOFTWARE.
  */
 
-const bme = require('../index.js');
+const bme = require('../');
 
 bme.init(0x77);
 bme.setConfig(8, 4, 2, 0);
