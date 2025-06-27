@@ -24,7 +24,19 @@
 
 const sensor = require('bindings')('bme680');
 
+/**
+ * Calculates a simplified "pseudo-IAQ" index (0–500) based on gas resistance.
+ * @param {number} gasResistance - Raw gas resistance from BME680, in ohms.
+ * @param {number} baseline - Reference value for "clean air" (default: 10 MΩ).
+ * @returns {number} IAQ index (0 = best, 500 = worst)
+ */
+function calculateIAQ(gasResistance, baseline = 10_000_000) {
+    const ratio = gasResistance / baseline;
+    const iaq = 500 - (Math.log(ratio) * 100);
+    return Math.round(Math.max(0, Math.min(500, iaq)));
+}
+
 module.exports = {
-    readData: sensor.readData,
-    // np. init(), close() itd.
+    ...sensor,
+    calculateIAQ
 };

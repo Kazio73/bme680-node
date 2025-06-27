@@ -30,4 +30,6 @@ bme.setHeater(300, 100);
 bme.setMode(1); // FORCED_MODE
 const data = bme.readData();
 console.log(data);
+const iaq = bme.calculateIAQ(data.gas, 6000000);
+console.log('Pseudo IAQ:', iaq);
 bme.close();
