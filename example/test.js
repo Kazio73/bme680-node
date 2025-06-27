@@ -23,12 +23,14 @@
  */
 
 const bme = require('../');
+const bme680 = require('../build/Release/bme680.node');
+
 
 console.log('✅ Exports:', Object.keys(bme));
 
-bme.init(0x77);
-bme.setConfig(8, 4, 2, 0);
-bme.setHeater(300, 100);
+bme680.init(0x77);
+bme680.setConfig(8, 4, 2, 0);
+bme680.setHeater(300, 100);
 
 try {
     const data = bme.readData();
