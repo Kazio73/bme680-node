@@ -21,9 +21,35 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
+#ifndef BME680_WRAPPER_H
+#define BME680_WRAPPER_H
 
+#include <stdint.h>
+
+#ifdef __cplusplus
+extern "C" {
+#endif
+
+typedef struct {
+    float temperature;
+    float humidity;
+    float pressure;
+    float gas_resistance;
+} bme680_data_t;
+
+// Main sensor API
+int bme680_init(uint8_t i2c_addr);
+int bme680_read_data(bme680_data_t *data);
+void bme680_close(void);
+
+// Additional configuration
 int bme680_set_config(uint8_t os_temp, uint8_t os_pres, uint8_t os_hum, uint8_t filter);
 int bme680_set_heater(uint16_t temp, uint16_t duration_ms);
 int bme680_set_mode(uint8_t op_mode);
 int bme680_get_mode(uint8_t *mode);
 int bme680_selftest(void);
+
+#ifdef __cplusplus
+}
+#endif
+
