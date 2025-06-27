@@ -22,8 +22,7 @@
  * THE SOFTWARE.
  */
 
-const path = require('path');
-const sensor = require(path.resolve(__dirname, './build/Release/bme680.node'));
+const sensor = require('bindings')('bme680');
 
 console.log('SENSOR EXPORTS:', Object.keys(sensor));
 
