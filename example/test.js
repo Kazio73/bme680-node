@@ -22,7 +22,7 @@
  * THE SOFTWARE.
  */
 
-const bme = require('./build/Release/bme680.node');
+const bme = require('../build/Release/bme680.node');
 
 bme.init(0x76);
 bme.setConfig(8, 4, 2, 0);
