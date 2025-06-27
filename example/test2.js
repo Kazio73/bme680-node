@@ -1,7 +1,7 @@
 const bme680 = require('../build/Release/bme680.node');
 
 console.log('🔧 Initializing BME680...');
-const result = bme680.init(0x76); // or 0x77
+const result = bme680.init(0x77); // or 0x77
 if (result !== 0) {
     console.error('❌ Initialization failed:', result);
     process.exit(1);
