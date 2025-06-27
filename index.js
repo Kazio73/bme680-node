@@ -36,7 +36,6 @@ function calculateIAQ(gasResistance, baseline = 10_000_000) {
     return Math.round(Math.max(0, Math.min(500, iaq)));
 }
 
-console.log('SENSOR EXPORTS:', Object.keys(sensor));
 module.exports = {
     ...sensor,
     calculateIAQ
