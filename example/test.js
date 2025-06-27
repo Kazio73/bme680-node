@@ -22,7 +22,7 @@
  * THE SOFTWARE.
  */
 
-const bme = require('../');
+const bme = require('../index.js');
 
 console.log(Object.keys(bme));
 
