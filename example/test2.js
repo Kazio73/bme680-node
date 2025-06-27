@@ -1,4 +1,4 @@
-const bme680 = require('./build/Release/bme680.node');
+const bme680 = require('../build/Release/bme680.node');
 
 console.log('🔧 Initializing BME680...');
 const result = bme680.init(0x76); // or 0x77
