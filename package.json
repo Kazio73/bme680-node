@@ -1,0 +1,27 @@
+{
+  "name": "bme680-node",
+  "version": "0.1.0",
+  "description": "Native Node.js addon for BME680 sensor using N-API",
+  "main": "index.js",
+  "scripts": {
+    "build": "node-gyp rebuild",
+    "install": "node-gyp rebuild",
+    "test": "node test/test.js"
+  },
+  "author": "Kazik Karczewski",
+  "license": "MIT",
+  "keywords": ["bme680", "sensor", "node-gyp", "n-api", "native", "raspberrypi", "iot"],
+  "gypfile": true,
+  "devDependencies": {
+    "node-addon-api": "^8.3.1",
+    "node-gyp": "^11.2.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kazio73/bme680-node.git"
+  },
+  "homepage": "https://github.com/Kazio73/bme680-node#readme",
+  "bugs": {
+    "url": "https://github.com/Kazio73/bme680-node/issues"
+  }
+}
