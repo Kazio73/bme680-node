@@ -53,3 +53,5 @@ int bme680_selftest(void);
 }
 #endif
 
+#endif // BME680_WRAPPER_H
+
