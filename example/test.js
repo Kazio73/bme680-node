@@ -28,8 +28,16 @@ bme.init(0x76);
 bme.setConfig(8, 4, 2, 0);
 bme.setHeater(300, 100);
 bme.setMode(1); // FORCED_MODE
-const data = bme.readData();
-console.log(data);
-const iaq = bme.calculateIAQ(data.gas, 6000000);
-console.log('Pseudo IAQ:', iaq);
+try {
+    const data = bme680.readData();
+    const iaq = bme.calculateIAQ(data.gas, 6000000);
+    console.log('Temperature:', data.temperature.toFixed(2), '°C');
+    console.log('Humidity:   ', data.humidity.toFixed(2), '%');
+    console.log('Pressure:   ', data.pressure.toFixed(2), 'hPa');
+    console.log('Gas:        ', data.gas.toFixed(2), 'Ω');
+    console.log('Pseudo IAQ:', iaq);
+} catch (err) {
+    console.error('❌ Read error:', err.message);
+}
 bme.close();
+console.log('✅ Done.');
