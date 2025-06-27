@@ -27,7 +27,7 @@
 #include <stdint.h>
 #include "bme680.h"
 
-#define DECLARE_NAPI_METHOD(name, func)                \
+#define DECLARE_NAPI_METHOD(name, func) \
   { name, 0, func, 0, 0, 0, napi_default, 0 }
 
 /**
@@ -193,7 +193,13 @@ napi_value Init(napi_env env, napi_value exports) {
         DECLARE_NAPI_METHOD("selftest", Selftest),
         DECLARE_NAPI_METHOD("close", Close)
     };
-    napi_define_properties(env, exports, sizeof(descriptors) / sizeof(*descriptors), descriptors);
+    //napi_define_properties(env, exports, sizeof(descriptors) / sizeof(*descriptors), descriptors);
+
+    napi_status status = napi_define_properties(env, exports, sizeof(descriptors) / sizeof(*descriptors), descriptors);
+    if (status != napi_ok) {
+        napi_throw_error(env, NULL, "Failed to define properties");
+    }
+
     return exports;
 }
 
