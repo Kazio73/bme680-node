@@ -22,8 +22,11 @@
  * THE SOFTWARE.
  */
 
-const bindings = require('bindings');
-const sensor = bindings({ bindings: 'bme680', module_root: __dirname });
+const sensor = require('bindings')('bme680');
+
+if (!sensor || typeof sensor.init !== 'function') {
+    throw new Error('❌ Native module failed to load properly. Got: ' + JSON.stringify(sensor));
+}
 
 console.log('EXPORTS:', Object.keys(sensor));
 
