@@ -22,7 +22,7 @@
  * THE SOFTWARE.
  */
 
-const sensor = require('./build/Release/bme680.node');
+const sensor = require('../build/Release/bme680.node');
 console.log(Object.keys(sensor));
 
 /*
