@@ -24,12 +24,6 @@
 
 const sensor = require('bindings')('bme680');
 
-if (!sensor || typeof sensor.init !== 'function') {
-    throw new Error('❌ Native module failed to load properly. Got: ' + JSON.stringify(sensor));
-}
-
-console.log('EXPORTS:', Object.keys(sensor));
-
 /**
  * Calculates a simplified "pseudo-IAQ" index (0–500) based on gas resistance.
  */
