@@ -22,7 +22,7 @@
  * THE SOFTWARE.
  */
 
-const sensor = require('build/Release/bme680.node');
+const sensor = require('./build/Release/bme680.node');
 
 /**
  * Calculates a simplified "pseudo-IAQ" index (0–500) based on gas resistance.
