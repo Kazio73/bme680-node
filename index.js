@@ -22,13 +22,13 @@
  * THE SOFTWARE.
  */
 
-const sensor = require('./build/Release/bme680.node');
+const path = require('path');
+const sensor = require(path.resolve(__dirname, './build/Release/bme680.node'));
+
+console.log('SENSOR EXPORTS:', Object.keys(sensor));
 
 /**
  * Calculates a simplified "pseudo-IAQ" index (0–500) based on gas resistance.
- * @param {number} gasResistance - Raw gas resistance from BME680, in ohms.
- * @param {number} baseline - Reference value for "clean air" (default: 10 MΩ).
- * @returns {number} IAQ index (0 = best, 500 = worst)
  */
 function calculateIAQ(gasResistance, baseline = 10_000_000) {
     const ratio = gasResistance / baseline;
@@ -38,5 +38,5 @@ function calculateIAQ(gasResistance, baseline = 10_000_000) {
 
 module.exports = {
     ...sensor,
-    calculateIAQ
+    calculateIAQ,
 };
