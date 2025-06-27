@@ -23,8 +23,17 @@
  */
 
 const bindings = require('bindings');
-console.log('Bindings path:', bindings.getBindingPath('bme680'));
-const sensor = require('bindings')('bme680');
+
+let sensor;
+try {
+    sensor = bindings('bme680');
+    console.log('✅ Loaded native module via bindings.');
+} catch (err) {
+    console.error('❌ Failed to load native module via bindings:', err.message);
+    sensor = {};
+}
+
+console.log('EXPORTS:', Object.keys(sensor));
 
 /**
  * Calculates a simplified "pseudo-IAQ" index (0–500) based on gas resistance.
@@ -35,8 +44,8 @@ function calculateIAQ(gasResistance, baseline = 10_000_000) {
     return Math.round(Math.max(0, Math.min(500, iaq)));
 }
 
-console.log(Object.keys(sensor));
 module.exports = {
     ...sensor,
     calculateIAQ,
 };
+
