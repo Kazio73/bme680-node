@@ -22,9 +22,7 @@
  * THE SOFTWARE.
  */
 
-const path = require('path');
-const nativePath = require('bindings')('bme680').path || require('bindings')('bme680');
-const sensor = require(nativePath); // ← wymuszone załadowanie .node ręcznie
+const sensor = require('build/Release/bme680.node');
 
 console.log('✅ Exports:', Object.keys(sensor));
 
