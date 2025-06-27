@@ -22,6 +22,8 @@
  * THE SOFTWARE.
  */
 
+const bindings = require('bindings');
+console.log('Bindings path:', bindings.getBindingPath('bme680'));
 const sensor = require('bindings')('bme680');
 
 /**
