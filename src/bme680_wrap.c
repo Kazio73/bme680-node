@@ -24,6 +24,7 @@
 
 #include <node_api.h>
 #include <stdio.h>
+#include <stdint.h>
 #include "bme680.h"
 
 #define DECLARE_NAPI_METHOD(name, func)                \
