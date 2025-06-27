@@ -45,4 +45,4 @@ try {
     console.error('❌ Read error:', err.message);
 }
 
-bme.close();
+bme680.close();
