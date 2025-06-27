@@ -22,6 +22,10 @@
  * THE SOFTWARE.
  */
 
+const sensor = require('./build/Release/bme680.node');
+console.log(Object.keys(sensor));
+
+/*
 const bme = require('../index.js');
 
 console.log(Object.keys(bme));
@@ -42,4 +46,4 @@ try {
     console.error('❌ Read error:', err.message);
 }
 bme.close();
-console.log('✅ Done.');
+console.log('✅ Done.');*/
