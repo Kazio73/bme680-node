@@ -23,7 +23,7 @@
  */
 
 const bme = require('../');
-console.log(Object.keys(bme)); // powinieneś zobaczyć ['init', ..., 'calculateIAQ']
+; // powinieneś zobaczyć ['init', ..., 'calculateIAQ']
 
 /*const bme = require('../index.js');
 
