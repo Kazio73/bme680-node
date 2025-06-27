@@ -27,7 +27,7 @@ const sensor = require('bindings')('bme680');
 /**
  * Calculates a simplified "pseudo-IAQ" index (0–500) based on gas resistance.
  */
-function calculateIAQ(gasResistance, baseline = 10_000_000) {
+function calculateIAQ(gasResistance, baseline = 10000000) {
     const ratio = gasResistance / baseline;
     const iaq = 500 - (Math.log(ratio) * 100);
     return Math.round(Math.max(0, Math.min(500, iaq)));
