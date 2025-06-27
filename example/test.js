@@ -24,6 +24,8 @@
 
 const bme = require('../');
 
+console.log(Object.keys(bme));
+
 bme.init(0x77);
 bme.setConfig(8, 4, 2, 0);
 bme.setHeater(300, 100);
