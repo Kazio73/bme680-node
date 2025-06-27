@@ -24,12 +24,12 @@
 
 const bme = require('../build/Release/bme680.node');
 
-bme.init(0x76);
+bme.init(0x77);
 bme.setConfig(8, 4, 2, 0);
 bme.setHeater(300, 100);
 bme.setMode(1); // FORCED_MODE
 try {
-    const data = bme680.readData();
+    const data = bme.readData();
     const iaq = bme.calculateIAQ(data.gas, 6000000);
     console.log('Temperature:', data.temperature.toFixed(2), '°C');
     console.log('Humidity:   ', data.humidity.toFixed(2), '%');
