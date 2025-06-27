@@ -18,4 +18,3 @@
     }
   ]
 }
-Po zmianie
