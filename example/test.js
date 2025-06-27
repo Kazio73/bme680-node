@@ -23,19 +23,17 @@
  */
 
 const bme = require('../');
-; // powinieneś zobaczyć ['init', ..., 'calculateIAQ']
 
-/*const bme = require('../index.js');
-
-console.log(Object.keys(bme));
+console.log('✅ Exports:', Object.keys(bme));
 
 bme.init(0x77);
 bme.setConfig(8, 4, 2, 0);
 bme.setHeater(300, 100);
-bme.setMode(1); // FORCED_MODE
+
 try {
     const data = bme.readData();
     const iaq = bme.calculateIAQ(data.gas, 6000000);
+
     console.log('Temperature:', data.temperature.toFixed(2), '°C');
     console.log('Humidity:   ', data.humidity.toFixed(2), '%');
     console.log('Pressure:   ', data.pressure.toFixed(2), 'hPa');
@@ -44,5 +42,5 @@ try {
 } catch (err) {
     console.error('❌ Read error:', err.message);
 }
+
 bme.close();
-console.log('✅ Done.');*/

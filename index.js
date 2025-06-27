@@ -23,15 +23,7 @@
  */
 
 const bindings = require('bindings');
-
-let sensor;
-try {
-    sensor = bindings('bme680');
-    console.log('✅ Loaded native module via bindings.');
-} catch (err) {
-    console.error('❌ Failed to load native module via bindings:', err.message);
-    sensor = {};
-}
+const sensor = bindings({ bindings: 'bme680', module_root: __dirname });
 
 console.log('EXPORTS:', Object.keys(sensor));
 
