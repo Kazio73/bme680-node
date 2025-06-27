@@ -24,8 +24,6 @@
 
 const sensor = require('bindings')('bme680');
 
-console.log('SENSOR EXPORTS:', Object.keys(sensor));
-
 /**
  * Calculates a simplified "pseudo-IAQ" index (0–500) based on gas resistance.
  */
