@@ -22,7 +22,7 @@
  * THE SOFTWARE.
  */
 
-const bme = require('../index.js');
+const bme = require('../');
 console.log(Object.keys(bme)); // powinieneś zobaczyć ['init', ..., 'calculateIAQ']
 
 /*const bme = require('../index.js');
