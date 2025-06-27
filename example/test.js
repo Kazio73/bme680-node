@@ -33,7 +33,7 @@ bme680.setConfig(8, 4, 2, 0);
 bme680.setHeater(300, 100);
 
 try {
-    const data = bme.readData();
+    const data = bme680.readData();
     const iaq = bme.calculateIAQ(data.gas, 6000000);
 
     console.log('Temperature:', data.temperature.toFixed(2), '°C');
